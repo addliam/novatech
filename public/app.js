@@ -30,13 +30,9 @@ function crearTarjeta(producto) {
   carrito.type = 'button';
   carrito.className = 'btn-carrito';
   carrito.setAttribute('aria-label', `Agregar ${producto.nombre} al carrito`);
-  carrito.innerHTML = ICONO_CARRITO + '<span>Agregar</span>';
+  carrito.innerHTML = ICONO_CARRITO + '<span>Agregar al carrito</span>';
 
-  const pie = document.createElement('div');
-  pie.className = 'pie-tarjeta';
-  pie.append(precio, carrito);
-
-  tarjeta.append(img, nombre, descripcion, pie);
+  tarjeta.append(img, nombre, descripcion, precio, carrito);
   return tarjeta;
 }
 

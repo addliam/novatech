@@ -7,25 +7,46 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <div class="contenedor">
-    <header class="cabecera">
-      <div class="marca"><span class="logo">NT</span>NovaTech Store</div>
-      <span class="lema">Accesorios tecnológicos</span>
-    </header>
+  <div class="barra-superior">
+    <div class="contenedor barra-superior__items">
+      <span>Envío gratis desde S/ 150</span>
+      <span>Pagos seguros</span>
+      <span>Devoluciones fáciles</span>
+    </div>
+  </div>
 
-    <main>
-      <h1>Productos</h1>
-      <p id="cargando" class="estado">Cargando productos…</p>
-      <p id="error" class="estado error" hidden>No se pudieron cargar los productos.</p>
-      <p id="vacio" class="estado" hidden>Aún no hay productos.</p>
-      <section id="grilla" class="grilla" aria-live="polite"></section>
-    </main>
+  <header class="cabecera">
+    <div class="contenedor cabecera__fila">
+      <a class="marca" href="/">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l-1 13H7L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg>
+        </span>
+        <span class="marca__texto"><strong>NovaTech</strong><small>Electrónica y accesorios</small></span>
+      </a>
+      <button class="icono-carrito" type="button" aria-label="Carrito (0 productos)">
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6"/></svg>
+        <span class="icono-carrito__contador">0</span>
+      </button>
+    </div>
+  </header>
 
-    <footer class="pie">
+  <main class="contenedor">
+    <div class="titulo-seccion">
+      <h1>Productos destacados</h1>
+      <span class="titulo-seccion__linea" aria-hidden="true"></span>
+    </div>
+    <p id="cargando" class="estado">Cargando productos…</p>
+    <p id="error" class="estado error" hidden>No se pudieron cargar los productos.</p>
+    <p id="vacio" class="estado" hidden>Aún no hay productos.</p>
+    <section id="grilla" class="grilla" aria-live="polite"></section>
+  </main>
+
+  <footer class="pie">
+    <div class="contenedor pie__fila">
       <span>© 2026 NovaTech Store</span>
       <span class="servidor">Atendido por: <strong id="servidor">…</strong></span>
-    </footer>
-  </div>
+    </div>
+  </footer>
   <script src="/app.js"></script>
 </body>
 </html>

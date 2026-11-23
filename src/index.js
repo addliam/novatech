@@ -31,7 +31,8 @@ async function migrarDatos(strapi) {
 
   for (const m of MIGRACIONES.filter((x) => x.version > actual)) {
     let creados = 0;
-    for (const data of m.productos) {
+    let actualizados = 0;
+    for (const data of m.productos || []) {
       // Evita duplicados si la base ya tenía el producto (p. ej. semilla anterior sin versión).
       const ya = await productos.findFirst({ filters: { nombre: data.nombre } });
       if (!ya) {
@@ -39,8 +40,18 @@ async function migrarDatos(strapi) {
         creados++;
       }
     }
+    for (const { nombre, cambios } of m.actualizar || []) {
+      // Si el producto fue borrado desde el panel, se respeta y no se recrea.
+      const doc = await productos.findFirst({ filters: { nombre } });
+      if (doc) {
+        await productos.update({ documentId: doc.documentId, data: cambios });
+        actualizados++;
+      }
+    }
     await store.set({ key: 'version_datos', value: m.version });
-    strapi.log.info(`Migración de datos v${m.version} (${m.descripcion}): ${creados} productos creados`);
+    strapi.log.info(
+      `Migración de datos v${m.version} (${m.descripcion}): ${creados} creados, ${actualizados} actualizados`
+    );
   }
 }
 

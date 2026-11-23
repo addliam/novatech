@@ -1,12 +1,14 @@
 :root {
-  --fondo: #f7f7f5;
-  --superficie: #ffffff;
-  --texto: #1f2328;
-  --suave: #5f6368;
-  --linea: #e3e3df;
-  --marca: #185fa5;
-  --marca-suave: #e6f1fb;
-  --error: #a32d2d;
+  --fondo: #ffffff;
+  --texto: #0f1b3d;
+  --suave: #55607a;
+  --linea: #e4e8f5;
+  --azul: #1463f5;
+  --azul-oscuro: #0b47c2;
+  --marino: #0b1736;
+  --tarjeta-a: #f4f6ff;
+  --tarjeta-b: #e9ecfb;
+  --error: #b42318;
 }
 
 * { box-sizing: border-box; }
@@ -19,48 +21,70 @@ body {
   line-height: 1.5;
 }
 
-.contenedor { max-width: 1040px; margin: 0 auto; padding: 16px; }
+.contenedor { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
-.cabecera {
-  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;
-  padding-bottom: 14px; border-bottom: 1px solid var(--linea);
-}
-.marca { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.15rem; }
+/* Barra superior */
+.barra-superior { background: var(--marino); color: #fff; font-size: .8rem; font-weight: 600; }
+.barra-superior__items { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px 28px; padding-top: 8px; padding-bottom: 8px; }
+
+/* Cabecera */
+.cabecera { background: #fff; border-bottom: 1px solid var(--linea); }
+.cabecera__fila { display: flex; justify-content: space-between; align-items: center; padding-top: 14px; padding-bottom: 14px; }
+.marca { display: flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; }
 .logo {
-  display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 8px;
-  background: var(--marca); color: #fff; font-size: .85rem;
+  display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 10px;
+  background: var(--azul); color: #fff;
 }
-.lema { color: var(--suave); font-size: .9rem; }
+.marca__texto { display: flex; flex-direction: column; line-height: 1.1; }
+.marca__texto strong { font-size: 1.5rem; font-weight: 800; color: var(--azul); letter-spacing: -.02em; }
+.marca__texto strong::first-letter { color: var(--marino); }
+.marca__texto small { font-size: .75rem; font-weight: 600; color: var(--marino); }
 
-h1 { font-size: 1.25rem; margin: 20px 0 12px; }
+.icono-carrito { position: relative; background: none; border: none; color: var(--marino); cursor: pointer; padding: 6px; }
+.icono-carrito__contador {
+  position: absolute; top: -2px; right: -4px; min-width: 18px; height: 18px; padding: 0 5px; border-radius: 9px;
+  background: var(--azul); color: #fff; font-size: .7rem; font-weight: 700; display: grid; place-items: center;
+}
+
+/* Título de sección */
+.titulo-seccion { display: flex; align-items: center; gap: 16px; margin: 28px 0 16px; }
+.titulo-seccion h1 { margin: 0; font-size: clamp(1.3rem, 4vw, 1.6rem); font-weight: 800; }
+@media (max-width: 479px) { .titulo-seccion__linea { display: none; } }
+.titulo-seccion__linea { flex: 1; height: 2px; background: linear-gradient(90deg, var(--azul), transparent); }
 
 .estado { color: var(--suave); }
-.estado.error { color: var(--error); border: 1px dashed var(--error); border-radius: 8px; padding: 10px; }
+.estado.error { color: var(--error); border: 1px dashed var(--error); border-radius: 10px; padding: 10px; }
 
-.grilla { display: grid; grid-template-columns: 1fr; gap: 16px; }
-@media (min-width: 560px) { .grilla { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); } }
+/* Grilla de productos */
+.grilla { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
+@media (min-width: 480px) { .grilla { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 820px) { .grilla { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 1100px) { .grilla { grid-template-columns: repeat(5, 1fr); } }
 
 .tarjeta {
-  background: var(--superficie); border: 1px solid var(--linea); border-radius: 10px; padding: 12px;
-  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, var(--tarjeta-a), var(--tarjeta-b));
+  border: 1px solid var(--linea); border-radius: 14px; padding: 12px;
+  display: flex; flex-direction: column; text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.tarjeta:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(20, 99, 245, .12); }
 .tarjeta img, .sin-imagen {
-  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 8px; background: var(--linea);
+  width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; background: #dfe3f3;
 }
 .sin-imagen { display: grid; place-items: center; color: var(--suave); font-size: .8rem; }
-.tarjeta h2 { font-size: 1rem; margin: 10px 0 4px; }
-.descripcion { margin: 0; color: var(--suave); font-size: .9rem; flex: 1; }
-.pie-tarjeta { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-top: 10px; }
-.precio { margin: 0; font-weight: 700; font-size: 1.05rem; }
-.btn-carrito {
-  display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border: none; border-radius: 8px;
-  background: var(--marca); color: #fff; font: inherit; font-size: .85rem; cursor: pointer;
-}
-.btn-carrito:hover { filter: brightness(1.1); }
-.btn-carrito:focus-visible { outline: 2px solid var(--marca); outline-offset: 2px; }
+.tarjeta h2 { font-size: 1rem; font-weight: 700; margin: 12px 0 2px; }
+.descripcion { margin: 0; color: var(--suave); font-size: .85rem; flex: 1; }
+.precio { margin: 10px 0; font-weight: 800; font-size: 1.35rem; color: var(--azul); }
 
-.pie {
-  margin-top: 24px; padding-top: 12px; border-top: 1px solid var(--linea);
-  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; color: var(--suave); font-size: .85rem;
+.btn-carrito {
+  display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: 100%;
+  padding: 10px 12px; border: none; border-radius: 10px;
+  background: var(--azul); color: #fff; font: inherit; font-size: .9rem; font-weight: 700; cursor: pointer;
 }
-.servidor { background: var(--marca-suave); color: var(--marca); padding: 2px 10px; border-radius: 6px; }
+.btn-carrito:hover { background: var(--azul-oscuro); }
+.btn-carrito:focus-visible { outline: 3px solid #9cc0ff; outline-offset: 2px; }
+
+/* Pie */
+.pie { background: var(--marino); color: #c9d3ee; font-size: .85rem; }
+.pie__fila { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-top: 16px; padding-bottom: 16px; }
+.servidor { background: rgba(255, 255, 255, .1); color: #fff; padding: 2px 10px; border-radius: 6px; }

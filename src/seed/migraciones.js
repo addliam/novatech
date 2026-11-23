@@ -27,4 +27,20 @@ module.exports = [
       { nombre: 'Mousepad XL', descripcion: 'Mousepad extendido 80 x 30 cm', precio: 39.9, imagen_url: '/img/mousepad.svg' },
     ],
   },
+  {
+    version: 3,
+    descripcion: 'Fotos reales (Unsplash) para los 10 productos',
+    actualizar: [
+      { nombre: 'Mouse X1', cambios: { imagen_url: '/img/fotos/mouse.jpg' } },
+      { nombre: 'Teclado K2', cambios: { imagen_url: '/img/fotos/teclado.jpg' } },
+      { nombre: 'Audífonos H3', cambios: { imagen_url: '/img/fotos/audifonos.jpg' } },
+      { nombre: 'Hub USB-C', cambios: { imagen_url: '/img/fotos/hub.jpg' } },
+      { nombre: 'Webcam W1', cambios: { imagen_url: '/img/fotos/webcam.jpg' } },
+      { nombre: 'Monitor M24', cambios: { imagen_url: '/img/fotos/monitor.jpg' } },
+      { nombre: 'Parlante P5', cambios: { imagen_url: '/img/fotos/parlante.jpg' } },
+      { nombre: 'USB 128 GB', cambios: { imagen_url: '/img/fotos/memoria.jpg' } },
+      { nombre: 'Cargador 65W', cambios: { imagen_url: '/img/fotos/cargador.jpg' } },
+      { nombre: 'Mousepad XL', cambios: { imagen_url: '/img/fotos/mousepad.jpg' } },
+    ],
+  },
 ];
