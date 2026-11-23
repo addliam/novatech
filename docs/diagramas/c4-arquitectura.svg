@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1500" viewBox="0 0 1000 1500" font-family="Arial, Helvetica, sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5F5E5A" stroke-width="1.6"/></marker></defs>
+<style>
+.p rect{fill:#EEEDFE;stroke:#534AB7}.p .h{fill:#3C3489}.p .s{fill:#534AB7}
+.y rect{fill:#E1F5EE;stroke:#0F6E56}.y .h{fill:#085041}.y .s{fill:#0F6E56}
+.g rect{fill:#F1EFE8;stroke:#5F5E5A}.g .h{fill:#2C2C2A}.g .s{fill:#5F5E5A}
+.d rect{fill:#FAECE7;stroke:#993C1D}.d .h{fill:#712B13}.d .s{fill:#993C1D}
+.h{font-size:16px;font-weight:bold}.s{font-size:13px}
+.t{font-size:22px;font-weight:bold;fill:#2C2C2A}.st{font-size:14px;fill:#5F5E5A}
+.l{font-size:13px;fill:#444441}.c{font-size:13px;font-family:Consolas,monospace}
+.ln{fill:none;stroke:#5F5E5A;stroke-width:1.4;marker-end:url(#a)}
+.bd{fill:none;stroke:#888780;stroke-dasharray:7 5}
+rect{stroke-width:1}
+</style>
+<rect width="1000" height="1500" fill="#FFFFFF"/>
+
+<text class="t" x="40" y="40">Nivel 1 · Contexto</text>
+<text class="st" x="40" y="62">Quién usa el sistema y para qué</text>
+<g class="p"><rect x="80" y="90" width="240" height="80" rx="10"/><text class="h" x="200" y="124" text-anchor="middle">Cliente</text><text class="s" x="200" y="146" text-anchor="middle">Persona que compra</text></g>
+<g class="p"><rect x="680" y="90" width="240" height="80" rx="10"/><text class="h" x="800" y="124" text-anchor="middle">Administrador</text><text class="s" x="800" y="146" text-anchor="middle">Personal de la tienda</text></g>
+<g class="y"><rect x="330" y="220" width="340" height="80" rx="10"/><text class="h" x="500" y="254" text-anchor="middle">NovaTech Store</text><text class="s" x="500" y="276" text-anchor="middle">Tienda online tolerante a fallos</text></g>
+<path class="ln" d="M200 170 V260 H326"/><path class="ln" d="M800 170 V260 H674"/>
+<text class="l" x="212" y="205">1. Ve imagen, nombre, descripción y precio</text>
+<text class="l" x="788" y="205" text-anchor="end">2. Agrega / elimina productos</text>
+<line x1="40" y1="330" x2="960" y2="330" stroke="#D3D1C7"/>
+
+<text class="t" x="40" y="370">Nivel 2 · Contenedores</text>
+<text class="st" x="40" y="392">Qué piezas se despliegan en AWS</text>
+<g class="p"><rect x="380" y="410" width="240" height="50" rx="10"/><text class="h" x="500" y="441" text-anchor="middle">Navegador (cliente / admin)</text></g>
+<rect class="bd" x="60" y="490" width="880" height="310" rx="16"/>
+<text class="st" x="80" y="514">Nube AWS · VPC us-east-1</text>
+<g class="g"><rect x="380" y="520" width="240" height="60" rx="10"/><text class="h" x="500" y="545" text-anchor="middle">Balanceador ALB</text><text class="s" x="500" y="566" text-anchor="middle">HTTP :80 · health check</text></g>
+<g class="y"><rect x="100" y="630" width="300" height="70" rx="10"/><text class="h" x="250" y="660" text-anchor="middle">EC2 A · zona 1a · Ubuntu</text><text class="s" x="250" y="682" text-anchor="middle">Strapi (tienda + CMS + API)</text></g>
+<g class="y"><rect x="600" y="630" width="300" height="70" rx="10"/><text class="h" x="750" y="660" text-anchor="middle">EC2 B · zona 1b · Ubuntu</text><text class="s" x="750" y="682" text-anchor="middle">Clon por AMI de la A</text></g>
+<g class="d"><rect x="380" y="730" width="240" height="50" rx="10"/><text class="h" x="500" y="752" text-anchor="middle">RDS PostgreSQL</text><text class="s" x="500" y="770" text-anchor="middle">BD externa compartida</text></g>
+<path class="ln" d="M500 460 V516"/>
+<path class="ln" d="M440 580 V605 H250 V626"/><path class="ln" d="M560 580 V605 H750 V626"/>
+<path class="ln" d="M250 700 V755 H376"/><path class="ln" d="M750 700 V755 H624"/>
+<text class="l" x="512" y="494">① HTTP</text>
+<text class="l" x="262" y="620">② reparte</text>
+<text class="l" x="262" y="728">③ SQL :5432</text>
+<line x1="40" y1="830" x2="960" y2="830" stroke="#D3D1C7"/>
+
+<text class="t" x="40" y="870">Nivel 3 · Componentes (dentro de cada EC2)</text>
+<text class="st" x="40" y="892">Un solo contenedor Docker con Strapi (restart: always)</text>
+<rect class="bd" x="60" y="905" width="880" height="205" rx="16"/>
+<text class="st" x="80" y="1098">Ubuntu 24.04 → Docker → contenedor node:22 → Strapi :1337</text>
+<g class="y"><rect x="90" y="920" width="240" height="60" rx="10"/><text class="h" x="210" y="946" text-anchor="middle">Tienda web</text><text class="s" x="210" y="967" text-anchor="middle">public/index.html + JS</text></g>
+<g class="y"><rect x="380" y="920" width="240" height="60" rx="10"/><text class="h" x="500" y="946" text-anchor="middle">Panel admin (CMS)</text><text class="s" x="500" y="967" text-anchor="middle">/admin</text></g>
+<g class="y"><rect x="670" y="920" width="240" height="60" rx="10"/><text class="h" x="790" y="946" text-anchor="middle">API REST</text><text class="s" x="790" y="967" text-anchor="middle">/api/products</text></g>
+<g class="p"><rect x="330" y="1020" width="340" height="56" rx="10"/><text class="h" x="500" y="1044" text-anchor="middle">Capa de datos Strapi</text><text class="s" x="500" y="1064" text-anchor="middle">Knex + driver pg</text></g>
+<path class="ln" d="M210 980 V1000 H730 V984"/>
+<path class="ln" d="M500 980 V1016"/>
+<path class="ln" d="M850 980 V1048 H674"/>
+<g class="d"><rect x="380" y="1140" width="240" height="50" rx="10"/><text class="h" x="500" y="1171" text-anchor="middle">RDS PostgreSQL</text></g>
+<path class="ln" d="M500 1076 V1136"/>
+<text class="l" x="222" y="996">fetch GET</text>
+<text class="l" x="512" y="1128">SQL directo TCP 5432 (no hay API sobre Postgres)</text>
+<line x1="40" y1="1215" x2="960" y2="1215" stroke="#D3D1C7"/>
+
+<text class="t" x="40" y="1255">Nivel 4 · Código</text>
+<text class="st" x="40" y="1277">Un solo tipo de contenido: Producto</text>
+<g class="y"><rect x="60" y="1300" width="270" height="170" rx="10"/><text class="h" x="80" y="1328">schema.json</text>
+<text class="c s" x="80" y="1358">src/api/product/...</text><text class="c s" x="80" y="1384">nombre: string</text><text class="c s" x="80" y="1408">descripcion: text</text><text class="c s" x="80" y="1432">precio: decimal</text><text class="c s" x="80" y="1456">imagen_url: string (URL)</text></g>
+<g class="y"><rect x="365" y="1300" width="270" height="170" rx="10"/><text class="h" x="385" y="1328">Rutas que genera Strapi</text>
+<text class="c s" x="385" y="1358">GET    /api/products</text><text class="c s" x="385" y="1384">POST   /api/products</text><text class="c s" x="385" y="1408">DELETE /api/products/:id</text><text class="c s" x="385" y="1432">(admin lo usa por /admin)</text></g>
+<g class="d"><rect x="670" y="1300" width="270" height="170" rx="10"/><text class="h" x="690" y="1328">Tabla en RDS</text>
+<text class="c s" x="690" y="1358">products</text><text class="c s" x="690" y="1384">id, document_id</text><text class="c s" x="690" y="1408">nombre, descripcion</text><text class="c s" x="690" y="1432">precio, imagen_url</text><text class="c s" x="690" y="1456">created_at</text></g>
+<path class="ln" d="M330 1385 H361"/><path class="ln" d="M635 1385 H666"/>
+</svg>

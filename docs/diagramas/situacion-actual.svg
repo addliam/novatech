@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="420" viewBox="0 0 900 420" font-family="Times New Roman, serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#000" stroke-width="1.6"/></marker></defs>
+<rect width="900" height="420" fill="#fff"/>
+<rect x="40" y="70" width="190" height="80" rx="10" fill="#f2f2f2" stroke="#000"/>
+<text x="135" y="105" font-size="20" font-weight="bold" text-anchor="middle">Clientes</text>
+<text x="135" y="130" font-size="16" text-anchor="middle">Navegador / celular</text>
+<rect x="40" y="250" width="190" height="80" rx="10" fill="#f2f2f2" stroke="#000"/>
+<text x="135" y="285" font-size="20" font-weight="bold" text-anchor="middle">Administrador</text>
+<text x="135" y="310" font-size="16" text-anchor="middle">Gestiona productos</text>
+<rect x="420" y="60" width="430" height="300" rx="14" fill="#fff" stroke="#000" stroke-width="2.5"/>
+<text x="635" y="95" font-size="20" font-weight="bold" text-anchor="middle">Servidor único de NovaTech</text>
+<text x="635" y="118" font-size="16" text-anchor="middle">Una sola máquina física / virtual</text>
+<rect x="450" y="140" width="370" height="70" rx="8" fill="#f2f2f2" stroke="#000"/>
+<text x="635" y="172" font-size="18" font-weight="bold" text-anchor="middle">Aplicación web (tienda + panel)</text>
+<text x="635" y="195" font-size="15" text-anchor="middle">Atiende todas las peticiones</text>
+<rect x="450" y="230" width="370" height="70" rx="8" fill="#f2f2f2" stroke="#000"/>
+<text x="635" y="262" font-size="18" font-weight="bold" text-anchor="middle">Base de datos</text>
+<text x="635" y="285" font-size="15" text-anchor="middle">En el mismo disco que la aplicación</text>
+<line x1="635" y1="210" x2="635" y2="222" stroke="#000" stroke-width="1.6"/><polygon points="629,220 641,220 635,230" fill="#000"/>
+<path d="M230 110 H330 V200 H440" fill="none" stroke="#000" stroke-width="1.6"/><polygon points="438,194 438,206 450,200" fill="#000"/>
+<path d="M230 290 H330 V200" fill="none" stroke="#000" stroke-width="1.6"/>
+<text x="338" y="190" font-size="15">HTTP</text>
+<rect x="470" y="318" width="330" height="30" rx="15" fill="#000"/>
+<text x="635" y="339" font-size="16" font-weight="bold" fill="#fff" text-anchor="middle">PUNTO ÚNICO DE FALLA</text>
+<text x="450" y="395" font-size="15" font-style="italic" text-anchor="middle" transform="translate(0,0)" dx="0">Si el servidor se satura o falla, la tienda y los datos quedan inaccesibles.</text>
+</svg>
