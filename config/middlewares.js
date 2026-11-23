@@ -20,5 +20,6 @@ module.exports = [
   'strapi::body',
   'strapi::session',
   'strapi::favicon',
+  'global::tienda',
   'strapi::public',
 ];
