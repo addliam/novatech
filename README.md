@@ -60,3 +60,5 @@ Dockerfile              imagen de Strapi (la misma en local y AWS)
 compose.yml             local: strapi + postgres
 compose.prod.yml        EC2: solo strapi, apunta a RDS
 ```
+
+> ¿Usas un agente de código (Claude Code, Codex, Cursor…)? Pídele que lea [AGENTS.md](AGENTS.md).

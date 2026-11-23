@@ -7,3 +7,5 @@ dist
 .strapi
 *.log
 docs
+AGENTS.md
+CLAUDE.md
