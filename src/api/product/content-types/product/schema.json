@@ -1,0 +1,19 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "Product",
+    "description": "Producto de la tienda NovaTech Store"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "nombre": { "type": "string", "required": true },
+    "descripcion": { "type": "text", "required": true },
+    "precio": { "type": "decimal", "required": true, "min": 0 },
+    "imagen_url": { "type": "string", "required": true }
+  }
+}

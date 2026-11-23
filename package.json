@@ -1,0 +1,37 @@
+{
+  "name": "novatech",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+  },
+  "dependencies": {
+    "@strapi/database": "5.63.0",
+    "@strapi/plugin-cloud": "5.63.0",
+    "@strapi/plugin-users-permissions": "5.63.0",
+    "@strapi/strapi": "5.63.0",
+    "better-sqlite3": "12.11.1",
+    "pg": "^8.23.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.30.3",
+    "styled-components": "^6.0.0"
+  },
+  "engines": {
+    "node": ">=22.0.0 <=26.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "c3b5bda5-67a0-46b6-8607-8e202f8d2b59",
+    "installId": "7f03d5cd91df176fb1149afd85e37275dd2ee97a8c194726164ed99952e3e594"
+  }
+}

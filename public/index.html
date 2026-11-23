@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NovaTech Store</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="contenedor">
+    <header class="cabecera">
+      <div class="marca"><span class="logo">NT</span>NovaTech Store</div>
+      <span class="lema">Accesorios tecnológicos</span>
+    </header>
+
+    <main>
+      <h1>Productos</h1>
+      <p id="cargando" class="estado">Cargando productos…</p>
+      <p id="error" class="estado error" hidden>No se pudieron cargar los productos.</p>
+      <p id="vacio" class="estado" hidden>Aún no hay productos.</p>
+      <section id="grilla" class="grilla" aria-live="polite"></section>
+    </main>
+
+    <footer class="pie">
+      <span>© 2026 NovaTech Store</span>
+      <span class="servidor">Atendido por: <strong id="servidor">…</strong></span>
+    </footer>
+  </div>
+  <script src="/app.js"></script>
+</body>
+</html>
