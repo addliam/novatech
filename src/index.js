@@ -1,11 +1,11 @@
 'use strict';
 
 const PRODUCTOS_SEMILLA = [
-  { nombre: 'Mouse X1', descripcion: 'Mouse inalámbrico 2.4 GHz, 1600 DPI', precio: 59.9, imagen_url: 'https://placehold.co/400x300?text=Mouse+X1' },
-  { nombre: 'Teclado K2', descripcion: 'Teclado mecánico, switch rojo, retroiluminado', precio: 189, imagen_url: 'https://placehold.co/400x300?text=Teclado+K2' },
-  { nombre: 'Audífonos H3', descripcion: 'Audífonos Bluetooth 5.3 con micrófono', precio: 129, imagen_url: 'https://placehold.co/400x300?text=Audifonos+H3' },
-  { nombre: 'Hub USB-C', descripcion: 'Hub de 7 puertos con HDMI 4K', precio: 99, imagen_url: 'https://placehold.co/400x300?text=Hub+USB-C' },
-  { nombre: 'Webcam W1', descripcion: 'Cámara web Full HD 1080p', precio: 149, imagen_url: 'https://placehold.co/400x300?text=Webcam+W1' },
+  { nombre: 'Mouse X1', descripcion: 'Mouse inalámbrico 2.4 GHz, 1600 DPI', precio: 59.9, imagen_url: '/img/mouse.svg' },
+  { nombre: 'Teclado K2', descripcion: 'Teclado mecánico, switch rojo, retroiluminado', precio: 189, imagen_url: '/img/teclado.svg' },
+  { nombre: 'Audífonos H3', descripcion: 'Audífonos Bluetooth 5.3 con micrófono', precio: 129, imagen_url: '/img/audifonos.svg' },
+  { nombre: 'Hub USB-C', descripcion: 'Hub de 7 puertos con HDMI 4K', precio: 99, imagen_url: '/img/hub.svg' },
+  { nombre: 'Webcam W1', descripcion: 'Cámara web Full HD 1080p', precio: 149, imagen_url: '/img/webcam.svg' },
 ];
 
 const ACCIONES_PUBLICAS = ['api::product.product.find', 'api::product.product.findOne'];
