@@ -2,7 +2,7 @@ FROM node:22-alpine AS build
 WORKDIR /app
 RUN apk add --no-cache python3 make g++ vips-dev
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install -g npm@11 && npm ci
 COPY . .
 ENV NODE_ENV=production
 RUN npm run build
