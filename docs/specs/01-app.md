@@ -38,7 +38,7 @@ Carrito, pagos, login de clientes, subida de imágenes, búsqueda.
 
 ## Entregables
 
-- Repo GitHub `novatech-store` (privado; dar acceso a los 3 colegas).
+- Repo GitHub https://github.com/addliam/novatech (rama `main`); si es privado, dar acceso a los 3 colegas.
 - `README.md` con: requisito único (Docker Desktop), levantar en local (`copy .env.example .env` → `docker compose up --build`), levantar en servidor (`docker compose -f compose.prod.yml up -d --build`), cómo crear el admin y cómo reiniciar desde cero (`docker compose down -v`).
 
 ## Criterios de aceptación (en local)

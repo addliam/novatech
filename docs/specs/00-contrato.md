@@ -2,11 +2,21 @@
 
 Fuente de verdad compartida. Si algo de aquí cambia, se avisa a todos.
 
+## Repositorio
+
+Código, specs y diagramas: **https://github.com/addliam/novatech** (rama `main`).
+
+```bash
+git clone https://github.com/addliam/novatech.git
+```
+
+Si usas un agente de código, pídele que lea `AGENTS.md` en la raíz del repo.
+
 ## Roles
 
 | Spec | Rol | Responsable | Entrega |
 |---|---|---|---|
-| 01 | App (front + back) | Tú | Repo Strapi con tienda, en GitHub |
+| 01 | App (front + back) | Tú | Repo [addliam/novatech](https://github.com/addliam/novatech) (rama `main`) |
 | 02 | Ops · Red y BD | Colega 1 | VPC, security groups, RDS PostgreSQL |
 | 03 | Ops · Cómputo | Colega 2 | EC2 A con la app corriendo, AMI, EC2 B |
 | 04 | Ops · Balanceo y pruebas | Colega 3 | Target group, ALB, pruebas E2E con evidencia |

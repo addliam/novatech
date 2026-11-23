@@ -18,9 +18,9 @@
    sudo systemctl enable docker                    # Docker arranca con la EC2
    sudo apt install -y git postgresql-client
    ```
-3. **Desplegar la app** (repo de 01):
+3. **Desplegar la app** (repo de 01: https://github.com/addliam/novatech):
    ```
-   git clone <repo> /home/ubuntu/novatech && cd /home/ubuntu/novatech
+   git clone https://github.com/addliam/novatech.git /home/ubuntu/novatech && cd /home/ubuntu/novatech
    cp .env.example .env && nano .env      # valores de 02 + claves nuevas + SERVIDOR=EC2 A
    docker compose -f compose.prod.yml up -d --build
    docker compose -f compose.prod.yml logs -f    # esperar "Strapi started"
