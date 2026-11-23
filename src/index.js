@@ -1,12 +1,6 @@
 'use strict';
 
-const PRODUCTOS_SEMILLA = [
-  { nombre: 'Mouse X1', descripcion: 'Mouse inalámbrico 2.4 GHz, 1600 DPI', precio: 59.9, imagen_url: '/img/mouse.svg' },
-  { nombre: 'Teclado K2', descripcion: 'Teclado mecánico, switch rojo, retroiluminado', precio: 189, imagen_url: '/img/teclado.svg' },
-  { nombre: 'Audífonos H3', descripcion: 'Audífonos Bluetooth 5.3 con micrófono', precio: 129, imagen_url: '/img/audifonos.svg' },
-  { nombre: 'Hub USB-C', descripcion: 'Hub de 7 puertos con HDMI 4K', precio: 99, imagen_url: '/img/hub.svg' },
-  { nombre: 'Webcam W1', descripcion: 'Cámara web Full HD 1080p', precio: 149, imagen_url: '/img/webcam.svg' },
-];
+const MIGRACIONES = require('./seed/migraciones');
 
 const ACCIONES_PUBLICAS = ['api::product.product.find', 'api::product.product.findOne'];
 
@@ -28,14 +22,26 @@ async function darPermisosPublicos(strapi) {
   }
 }
 
-async function cargarSemilla(strapi) {
+// Aplica cada migración de datos una sola vez. La versión aplicada se guarda en el store de Strapi
+// (tabla strapi_core_store_settings), así funciona igual en SQLite, en el Postgres de Docker y en RDS.
+async function migrarDatos(strapi) {
+  const store = strapi.store({ type: 'core', name: 'novatech' });
+  const actual = (await store.get({ key: 'version_datos' })) || 0;
   const productos = strapi.documents('api::product.product');
-  if ((await productos.count()) > 0) return;
 
-  for (const data of PRODUCTOS_SEMILLA) {
-    await productos.create({ data });
+  for (const m of MIGRACIONES.filter((x) => x.version > actual)) {
+    let creados = 0;
+    for (const data of m.productos) {
+      // Evita duplicados si la base ya tenía el producto (p. ej. semilla anterior sin versión).
+      const ya = await productos.findFirst({ filters: { nombre: data.nombre } });
+      if (!ya) {
+        await productos.create({ data });
+        creados++;
+      }
+    }
+    await store.set({ key: 'version_datos', value: m.version });
+    strapi.log.info(`Migración de datos v${m.version} (${m.descripcion}): ${creados} productos creados`);
   }
-  strapi.log.info(`Semilla: ${PRODUCTOS_SEMILLA.length} productos creados`);
 }
 
 module.exports = {
@@ -43,6 +49,6 @@ module.exports = {
 
   async bootstrap({ strapi }) {
     await darPermisosPublicos(strapi);
-    await cargarSemilla(strapi);
+    await migrarDatos(strapi);
   },
 };

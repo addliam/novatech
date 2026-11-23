@@ -1,6 +1,8 @@
 'use strict';
 
-const formatoPrecio = new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN' });
+const ICONO_CARRITO = '<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h3l2.7 12.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.5L21 8H6"/></svg>';
+
+const formatoPrecio =new Intl.NumberFormat('es-PE', { style: 'currency', currency: 'PEN' });
 
 function crearTarjeta(producto) {
   const tarjeta = document.createElement('article');
@@ -23,7 +25,18 @@ function crearTarjeta(producto) {
   precio.className = 'precio';
   precio.textContent = formatoPrecio.format(Number(producto.precio));
 
-  tarjeta.append(img, nombre, descripcion, precio);
+  // Botón de carrito: solo visual por ahora (sin funcionalidad).
+  const carrito = document.createElement('button');
+  carrito.type = 'button';
+  carrito.className = 'btn-carrito';
+  carrito.setAttribute('aria-label', `Agregar ${producto.nombre} al carrito`);
+  carrito.innerHTML = ICONO_CARRITO + '<span>Agregar</span>';
+
+  const pie = document.createElement('div');
+  pie.className = 'pie-tarjeta';
+  pie.append(precio, carrito);
+
+  tarjeta.append(img, nombre, descripcion, pie);
   return tarjeta;
 }
 
